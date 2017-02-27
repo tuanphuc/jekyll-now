@@ -5,7 +5,7 @@ title: Machine Learning roadmap for engineer
 
 Machine learning (ML) is a very interesting field to study. There is a fast growing need of engineers who had a computer science degree and want to step in this field and I am an example. However, it is not easy to have a clear study plan so that you can actually understand the background of ML and then eventually become a ML engineer. Although there are a lot of instructions, suggestions and even detailed roadmaps out there but I can't even know where to start because of the redundance of information in those approches. One of the most popular machine learning roadmap is one on github:
 
-[https://github.com/tuanphuc/machine-learning-for-software-engineers](https://github.com/tuanphuc/machine-learning-for-software-engineers)
+[https://github.com/tuanphuc/machine-learning-for-software-engineers](https://github.com/ZuzooVn/machine-learning-for-software-engineers)
 
 which proposes a lot of studying resources which are highly recommended by many people in the field. But I found hard to start when I look at a long list of resources which lacks of subtantial details needed to be in a true roadmap.
 
