@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Machine Learning roadmap for engineer
+title: Machine Learning roadmap for engineers
 ---
 
-Before going in to details of a Machine Learning (ML) roadmap, I want to clarify that I am an embedded engineer who are amazed by the beauty of ML and have started learning it for just over a year. So everything I write in this blog is subjective to my point of view. 
+Before going into details of a Machine Learning (ML) roadmap, I want to clarify that I am an embedded engineer who are amazed by the beauty of ML and have started learning it for just over a year. So everything I write in this blog is subjective to my point of view. 
 
 ML is a very interesting field to study. There is a fast growing need of engineers who had a computer science degree and want to step in this field and I am an example. However, it is not easy to have a clear study plan so that you can actually understand the background of ML and then eventually become a ML engineer.
 
