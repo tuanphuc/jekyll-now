@@ -22,6 +22,16 @@ Those books are 2 textbook used in the course [CS 189/289A Introduction to Machi
 
 > What I cannot create, I do not understand - Richard Feynman
 
-The next step is to implement some or all of the algorithms in the books to fully understand how they work. You can also learn a lot of programming techniques required to implement efficiently those algorithms because the scale of ML.
+The next step is to implement some or all of the algorithms in the books to fully understand how they work. You can also learn a lot of programming techniques required to implement efficiently those algorithms because the scale of ML. Practically you are equipped all the things you need to implement ML algorithms. I found a repository on github that has those algorithms implemented from scratch which I found very useful:
 
-To be continued...
+[https://github.com/eriklindernoren/ML-From-Scratch](https://github.com/eriklindernoren/ML-From-Scratch)
+
+From this point onward you have solid theoretical and practical background to develop your own ML projects. If you use libraries like tensorflow, keras or Pytorch, it's much easier to understand how models are created in those libraries and more importantly you understand clearly how every parameter in those models reflects on the final result.
+
+I will end this blog with a suggestion on another book that is helpful too:
+
+[Patern recognition and Machine learning by Christopher M. Bishop](http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf)
+
+This books with 2 other books introduced above can be used together. I might extend this blog with some ideas on learning Deep Learning so if you find this post interesting, pin it. I'm happy to get your feedback to make this roadmap more concrete so don't hesitate to email me to: [phan@tuanphuc.com](phan@tuanphuc.com). 
+
+Hope that this roadmap can help you
