@@ -11,7 +11,7 @@ Although there are a lot of instructions, suggestions and even detailed roadmaps
 
 [https://github.com/ZuzooVn/machine-learning-for-software-engineers](https://github.com/ZuzooVn/machine-learning-for-software-engineers)
 
-which proposes a lot of studying resources which are highly recommended by many people in the field. But I found hard to start when I look at a long list of resources which lacks of subtantial details in plan needed to be in a true roadmap. In this blog I will share with you a roadmap that I think concrete roadmap to learn ML based on my own experiences so it's up to you to decide to follow.
+which proposes a lot of studying resources which are highly recommended by many people in the field. But I found hard to start when I look at a long list of resources which lacks of subtantial details in plan needed to be in a true roadmap. In this blog I will share with you a roadmap that I think concrete to learn ML based on my own experiences so it's up to you to decide to follow.
 
 In my opinion, if you understanding theoritically a problem, you can learn much faster afterward. So first, you need to build your basic theory backgound of statistical learning (foundation of ML). Two books that are highly recommended is:
 
