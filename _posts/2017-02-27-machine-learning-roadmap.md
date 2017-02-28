@@ -32,6 +32,6 @@ I will end this blog with a suggestion on another book that is helpful too:
 
 [Patern recognition and Machine learning by Christopher M. Bishop](http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf)
 
-This books with 2 other books introduced above can be used together. I might extend this blog with some ideas on learning Deep Learning so if you find this post interesting, pin it. I'm happy to get your feedback to make this roadmap more concrete so don't hesitate to email me to: [phan@tuanphuc.com](phan@tuanphuc.com). 
+This books with 2 other books introduced above can be used together. I might add more infos to this roadmap and extend this blog with some ideas on learning Deep Learning so if you find this post interesting, pin it. I'm happy to get your feedback to make this roadmap more concrete so don't hesitate to email me to: [phan@tuanphuc.com](mailto:phan@tuanphuc.com). 
 
-Hope that this roadmap can help you
+Hope that this roadmap can help you.
