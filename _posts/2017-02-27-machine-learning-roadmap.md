@@ -13,12 +13,16 @@ Although there are a lot of instructions, suggestions and even detailed roadmaps
 
 which proposes a lot of studying resources which are highly recommended by many people in the field. But I found hard to start when I look at a long list of resources which lacks of subtantial details in plan needed to be in a true roadmap. In this blog I will share with you a roadmap that I think concrete to learn ML based on my own experiences so it's up to you to decide to follow.
 
+##1. Theory
+
 In my opinion, if you understanding theoritically a problem, you can learn much faster afterward. So first, you need to build your basic theory backgound of statistical learning (foundation of ML). Two books that are highly recommended is:
 
   - An Introduction to Statistical Learning with Applications in R of Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani
   -  The Elements of Statistical Learning: Data Mining, Inference, and Prediction of Trevor Hastie, Robert Tibshirani, and Jerome Friedman
   
 Those books are 2 textbook used in the course [CS 189/289A Introduction to Machine Learning](https://people.eecs.berkeley.edu/~jrs/189s16/). They are available to download and you can follow the schedule of lectures to have a plan of reading those two books. There are also homeworks and lecture videos on youtube that are very useful. The first book introduces basic definition and popular methods, algorithms in Statistical Learning that are very accessible to beginers who are not specilised in statistic. The latter book covers all those things but in a higher level with detailed explanations and formulas that give you a great insight into what is behind all the different methods.
+
+##2. Practices
 
 > What I cannot create, I do not understand - Richard Feynman
 
@@ -27,6 +31,10 @@ The next step is to implement some or all of the algorithms in the books to full
 [https://github.com/eriklindernoren/ML-From-Scratch](https://github.com/eriklindernoren/ML-From-Scratch)
 
 From this point onward you have solid theoretical and practical background to develop your own ML projects. If you use libraries like tensorflow, keras or Pytorch, it's much easier to understand how models are created in those libraries and more importantly you understand clearly how every parameter in those models reflects on the final result.
+
+##3. Competitioins (optional)
+
+If you want to improve your skills in ML by competing, [kaggle.com](kaggle.com) is a pretty good place to start. One of the advantages of competting on kaggle is that you can build a profile as you compete. And that profile can play an important role in your career.
 
 I will end this blog with a suggestion on another book that is helpful too:
 
