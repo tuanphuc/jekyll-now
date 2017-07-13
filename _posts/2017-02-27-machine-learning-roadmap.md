@@ -18,8 +18,8 @@ Theory
 
 In my opinion, if you understanding theoritically a problem, you can learn much faster afterward. So first, you need to build your basic theory backgound of statistical learning (foundation of ML). Two books that are highly recommended is:
 
-  - An Introduction to Statistical Learning with Applications in R of Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani
-  -  The Elements of Statistical Learning: Data Mining, Inference, and Prediction of Trevor Hastie, Robert Tibshirani, and Jerome Friedman
+  - [An Introduction to Statistical Learning with Applications in R of Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf)
+  - [The Elements of Statistical Learning: Data Mining, Inference, and Prediction of Trevor Hastie, Robert Tibshirani, and Jerome Friedman](http://web.stanford.edu/~hastie/ElemStatLearn/printings/ESLII_print12.pdf)
   
 Those books are 2 textbook used in the course [CS 189/289A Introduction to Machine Learning](https://people.eecs.berkeley.edu/~jrs/189s16/). They are available to download and you can follow the schedule of lectures to have a plan of reading those two books. There are also homeworks and lecture videos on youtube that are very useful. The first book introduces basic definition and popular methods, algorithms in Statistical Learning that are very accessible to beginers who are not specilised in statistic. The latter book covers all those things but in a higher level with detailed explanations and formulas that give you a great insight into what is behind all the different methods.
 
@@ -43,6 +43,14 @@ I will end this blog with a suggestion on another book that is helpful too:
 
 [Patern recognition and Machine learning by Christopher M. Bishop](http://users.isr.ist.utl.pt/~wurmd/Livros/school/Bishop%20-%20Pattern%20Recognition%20And%20Machine%20Learning%20-%20Springer%20%202006.pdf)
 
-This books with 2 other books introduced above can be used together. I might add more infos to this roadmap and extend this blog with some ideas on learning Deep Learning so if you find this post interesting, pin it. I'm happy to get your feedback to make this roadmap more concrete so don't hesitate to email me to: [phan@tuanphuc.com](mailto:phan@tuanphuc.com). 
+ 
 
-Hope that this roadmap can help you.
+Planning
+--------
+
+This books with 2 other books introduced above can be used together so you need a clear plan to finish all the books that I recommend. I personnally use [kanbanflow.com](http://kanbanflow.com) to track my progress and I find it very useful. You will get a taste of achievements that will keep you moving forward.  
+
+Conclusion
+----------
+
+I might add more infos to make this roadmap more complete and extend this blog with some ideas on Deep Learning (especially Reinforcement Learning) so if you find this post helpful, pin it. I'm happy to get your feedback to make this roadmap more concrete so don't hesitate to email me to: [phan@tuanphuc.com](mailto:phan@tuanphuc.com).
