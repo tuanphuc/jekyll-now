@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am an embedded engineer who loves machine learning
+I am an embedded engineer who loves deep learning
 
 ### Contact me
 
