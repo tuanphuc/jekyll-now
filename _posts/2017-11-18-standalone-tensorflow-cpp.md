@@ -18,8 +18,8 @@ Tensorflow. To test the latest version of tensorflow on the latest stable Ubuntu
  
  The reason why I use Docker is to create an independent environment to test the latest version of tensorfow, because you can
  easily mess arround with all the includes and libs that already exist in your working environment. By creating a new Ubuntu
- docker image, it will be easier for you to follow the instructions without asking questions like: "Did you install library 
- XYZ?" or "What are your paths?". 
+ docker image, it will be easier for you to follow the instructions without having to questions like: "Did you install library 
+ XYZ?" or "What are your environment paths?". 
  
  I assume that you know the basic of Docker, here I create a ubuntu 17.10 image with this Dockerfile:
  ```
@@ -126,6 +126,11 @@ cp -r $TENSORFLOW_DIR/third_party/eigen3 include/third_party/
 cp -r /home/eigen-folder/. include/third_party/eigen3/
 cp -r include/third_party/eigen3/Eigen include/third_party/
 ```
+Clone google nsync:
+```
+cd /home/standalone/include
+git clone https://github.com/google/nsync.git
+```
 We need also 2 libraries libtensorflow_cc.so and libtensorflow_framework.so. Copy those libraries to /usr/local/lib:
 ```
 cd /home/standalone
@@ -159,7 +164,9 @@ INC += -I./include
 INC += -I./include/nsync/public/
 LDFLAGS =  -lprotobuf -pthread -lpthread
 LDFLAGS += -ltensorflow_cc -ltensorflow_framework
+
 all: main
+
 main:
         $(CC) $(CFLAGS) -o main main.cc $(INC) $(LDFLAGS)
 run:
