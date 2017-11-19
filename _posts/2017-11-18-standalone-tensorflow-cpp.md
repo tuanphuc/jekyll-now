@@ -5,9 +5,9 @@ title: Compile Tensorflow C++ without Bazel
 
 In this post, I will give detailed instructions on how to compile the official C++ Tensorflow project [**label_image**](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/label_image) with **gcc** instead of bazel. 
 
-The reason why I write this blog is because officially, to compile a C++ Tensorflow project, you have to integrate it in the source tree of tensorflow, create a BUILD file and compile it with bazel. For some reason, if you want to create a C++ Tensorflow project in your favorite C++ IDEs and build it with Makefile or CMake, you will need to do some extra work to allow gcc to be able to compile successfully C++ Tensorflow codes. The detailed instructions are in the second part, you can skip to it if you want to do directly on your machine instead of on a docker image.
+The reason why I write this blog is because officially, to compile a C++ Tensorflow project, you have to integrate it in the source tree of tensorflow, create a BUILD file and compile it with bazel. For some reason, if you want to create a C++ Tensorflow project in your favorite C++ IDEs and build it with Makefile or CMake, you will need to do some extra work to allow gcc to be able to compile successfully C++ Tensorflow codes. The detailed instructions are in the second part, you can skip the first part (Create a Ubuntu docker image) if you want to do directly on your machine instead of on a docker image.
 
-## I. Create docker image
+## I. Create a Ubuntu docker image
 In the first part, I will create a docker image with latest version of tensorflow on the latest stable Ubuntu:
   -  **Ubuntu 17.10**
   -  **gcc 7.2** (comes with Ubuntu 17.10)
