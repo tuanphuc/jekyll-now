@@ -36,12 +36,12 @@ RUN \
   rm -rf /var/lib/apt/lists/*
  ``` 
  Then use the following command to create the image:
- ```
+ ```bash
  docker build -t ubuntu:17.10 .
  ```
  
 **From now on, we will work on the interactive shell of docker image**, to go into the shell:
-```
+```bash
 docker run -it ubuntu:17.10 /bin/sh
 ```
 Install python
