@@ -16,14 +16,14 @@ Tensorflow. To test the latest version of tensorflow on the latest stable Ubuntu
   -  **gcc 7.2**
   -  **tensorflow 1.4.0**
 
- The reason why I use Docker is to create an independent environment to test the latest version of tensorfow, because you can
- easily mess arround with all the includes and libs that already exist in your working environment. By creating a new Ubuntu
- docker image, it will be easier for you to follow the instructions without having to questions like: "Did you install library
- XYZ?" or "What are your environment paths?".
+The reason why I use Docker is to create an independent environment to test the latest version of tensorfow, because you can
+easily mess arround with all the includes and libs that already exist in your working environment. By creating a new Ubuntu
+docker image, it will be easier for you to follow the instructions without having to questions like: "Did you install library
+XYZ?" or "What are your environment paths?".
 
- I assume that you know the basic of Docker, here I create a ubuntu 17.10 image with this Dockerfile:
- ```
- FROM ubuntu:17.10
+I assume that you know the basic of Docker, here I create a ubuntu 17.10 image with this Dockerfile:
+```
+FROM ubuntu:17.10
 
 # Install.
 RUN \
@@ -34,11 +34,11 @@ RUN \
   apt-get install -y software-properties-common && \
   apt-get install -y byobu curl git htop man unzip vim wget && \
   rm -rf /var/lib/apt/lists/*
- ```
- Then use the following command to create the image:
- ```sh
- docker build -t ubuntu:17.10 .
- ```
+```
+Then use the following command to create the image:
+```sh
+docker build -t ubuntu:17.10 .
+```
 
 **From now on, we will work on the interactive shell of docker image**, to go into the shell:
 ```sh
