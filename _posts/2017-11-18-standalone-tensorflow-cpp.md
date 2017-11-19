@@ -3,24 +3,24 @@ layout: post
 title: Compile Tensorflow C++ without Bazel
 ---
 
-As the title, in this post I will give the instructions on how to compile Tensorflow C++ codes without Bazel. The reason why 
-I wrrite this blog is because officially, to compile a C++ Tensorflow project, you have to integrate it in the source tree of 
+As the title, in this post I will give the instructions on how to compile Tensorflow C++ codes without Bazel. The reason why
+I wrrite this blog is because officially, to compile a C++ Tensorflow project, you have to integrate it in the source tree of
 tensorflow, create a BUILD file and compile it with bazel. An example is the label_image project under tensorflow/examples.
 
 Sometime you want to create a C++ Tensorflow projects in your favorite C++ IDEs and build it Makefile of CMake, you will need
-to do some extra work to allow gcc to compile successfully C++ Tensorflow codes. 
+to do some extra work to allow gcc to compile successfully C++ Tensorflow codes.
 
-So this post aims to give detailed instructions on how to compile C++ Tensorflow codes with gcc. I will call it Standalone C++ 
+So this post aims to give detailed instructions on how to compile C++ Tensorflow codes with gcc. I will call it Standalone C++
 Tensorflow. To test the latest version of tensorflow on the latest stable Ubuntu until now, I create a docker image with:
   -  **Ubuntu 17.10**
   -  **gcc 7.2**
   -  **tensorflow 1.4.0**
- 
+
  The reason why I use Docker is to create an independent environment to test the latest version of tensorfow, because you can
  easily mess arround with all the includes and libs that already exist in your working environment. By creating a new Ubuntu
- docker image, it will be easier for you to follow the instructions without having to questions like: "Did you install library 
- XYZ?" or "What are your environment paths?". 
- 
+ docker image, it will be easier for you to follow the instructions without having to questions like: "Did you install library
+ XYZ?" or "What are your environment paths?".
+
  I assume that you know the basic of Docker, here I create a ubuntu 17.10 image with this Dockerfile:
  ```
  FROM ubuntu:17.10
@@ -34,22 +34,22 @@ RUN \
   apt-get install -y software-properties-common && \
   apt-get install -y byobu curl git htop man unzip vim wget && \
   rm -rf /var/lib/apt/lists/*
- ``` 
+ ```
  Then use the following command to create the image:
- ```bash
+ ```sh
  docker build -t ubuntu:17.10 .
  ```
- 
+
 **From now on, we will work on the interactive shell of docker image**, to go into the shell:
-```bash
+```sh
 docker run -it ubuntu:17.10 /bin/sh
 ```
 Install python
-```
+```sh
 apt-get update && apt-get install python-dev python-pip python-setuptools python-sphinx python-yaml python-h5py python3-pip python-numpy python-scipy python-nose
 ```
 You need to install cmake 3.9.6 to compile others libraries:
-```
+```sh
 wget https://cmake.org/files/v3.9/cmake-3.9.6.tar.gz
 tar -xzvf cmake-3.9.6.tar.gz
 cd cmake-3.9.6
@@ -58,7 +58,7 @@ make
 make install
 ```
 Install googletest from sources
-```
+```sh
 cd /home
 git clone https://github.com/google/googletest.git
 cd googletest
@@ -69,7 +69,7 @@ make
 make install
 ```
 Install protobuf from sources:
-```
+```sh
 cd /home
 apt-get install autoconf automake libtool
 git clone https://github.com/google/protobuf.git
@@ -82,7 +82,7 @@ make install
 ldconfig
 ```
 Install Eigen 3.3.4 from sources
-```
+```sh
 cd /home
 wget http://bitbucket.org/eigen/eigen/get/3.3.4.tar.bz2
 tar -xzvf 3.3.4.tar.bz2
@@ -94,28 +94,28 @@ make
 make install
 ```
 Install bazel to compile tensorflow:
-```
+```sh
 apt-get install openjdk-8-jdk
 echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
 curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
 ```
 Clone tensorflow repo:
-```
+```sh
 git clone https://github.com/tensorflow/tensorflow.git
 ```
 Compile tensorflow for c++ (default parameters, python3)
-```
+```sh
 cd tensorflow
 ./configure
 bazel build //tensorflow:libtensorflow_cc.so
 ```
 Create a standalone folder to test compilation of C++ tensorflow with gcc
-```
+```sh
 cd /home
 mkdir standalone
 ```
 To compile tensorflow with gcc, it has to get all the header files required to compile. Create an include folder and copy header files to that folder:
-```
+```sh
 export TENSORFLOW_DIR=/home/tensorflow
 cd /home/standalone
 mkdir include
@@ -127,35 +127,35 @@ cp -r /home/eigen-folder/. include/third_party/eigen3/
 cp -r include/third_party/eigen3/Eigen include/third_party/
 ```
 Clone google nsync:
-```
+```sh
 cd /home/standalone/include
 git clone https://github.com/google/nsync.git
 ```
 We need also 2 libraries libtensorflow_cc.so and libtensorflow_framework.so. Copy those libraries to /usr/local/lib:
-```
+```sh
 cd /home/standalone
 mkdir lib
 cp -r $TENSORFLOW_DIR/bazel-bin/tensorflow/libtensorflow_cc.so /usr/local/lib
 cp -r $TENSORFLOW_DIR/bazel-bin/tensorflow/libtensorflow_framework.so /usr/local/lib
 ```
 Refresh shared library cache:
-```
+```sh
 ldconfig
 ```
 Copy C++ example label_image under tensorflow source tree to standalone folder:
-```
+```sh
 cd /home/standalone
 cp $TENSORFLOW_DIR/tensorflow/examples/label_image/main.cc .
 cp -r $TENSORFLOW_DIR/tensorflow/examples/label_image/data .
 ```
 Get inception model
-```
+```sh
 cd /home/standalone/data
 wget https://storage.googleapis.com/download.tensorflow.org/models/inception_v3_2016_08_28_frozen.pb.tar.gz
 tar -xzvf inception_v3_2016_08_28_frozen.pb.tar.gz
 ```
 Create Makefile in standalone folder with content:
-```
+```Makefile
 CC = g++
 CFLAGS = -std=c++11 -g -Wall -D_DEBUG -Wshadow -Wno-sign-compare -w
 INC = -I/usr/local/include/eigen3
@@ -175,14 +175,14 @@ clean:
         rm -f main
 ```
 Now do:
-```
+```sh
 make
 make run
 ```
 Normally, it wil output:
-```
+```sh
 ./main --image=./data/grace_hopper.jpg --graph=./data/inception_v3_2016_08_28_frozen.pb --labels=./data/imagenet_slim_labels.txt
-2017-11-19 13:10:23.989200: I tensorflow/core/platform/cpu_feature_guard.cc:137] 
+2017-11-19 13:10:23.989200: I tensorflow/core/platform/cpu_feature_guard.cc:137]
 2017-11-19 13:10:25.205406: I main.cc:250] military uniform (653): 0.834306
 2017-11-19 13:10:25.205491: I main.cc:250] mortarboard (668): 0.0218692
 2017-11-19 13:10:25.205520: I main.cc:250] academic gown (401): 0.0103579
@@ -198,7 +198,7 @@ To sum up, by following instructions, you can create an evironment with:
   -  Eigen 3.3.4
   -  Protobuf (master branch)
   -  Googletest (master branch)
-  -  bazel 
+  -  bazel
 
 Then all the headerfiles are copied in a folder names standalone that is ready to compile C++ tensorflow codes.
 
