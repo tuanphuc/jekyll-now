@@ -155,7 +155,7 @@ wget https://storage.googleapis.com/download.tensorflow.org/models/inception_v3_
 tar -xzvf inception_v3_2016_08_28_frozen.pb.tar.gz
 ```
 Create Makefile in standalone folder with content:
-```Makefile
+```make
 CC = g++
 CFLAGS = -std=c++11 -g -Wall -D_DEBUG -Wshadow -Wno-sign-compare -w
 INC = -I/usr/local/include/eigen3
