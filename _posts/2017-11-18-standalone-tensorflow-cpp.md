@@ -3,23 +3,18 @@ layout: post
 title: Compile Tensorflow C++ without Bazel
 ---
 
-As the title, in this post I will give the instructions on how to compile Tensorflow C++ codes without Bazel. The reason why
-I wrrite this blog is because officially, to compile a C++ Tensorflow project, you have to integrate it in the source tree of
-tensorflow, create a BUILD file and compile it with bazel. An example is the label_image project under tensorflow/examples.
+In this post, I will give detailed instructions on how to compile the official C++ Tensorflow project [**label_image**](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/label_image) with **gcc** instead of bazel. 
 
-Sometime you want to create a C++ Tensorflow projects in your favorite C++ IDEs and build it Makefile of CMake, you will need
-to do some extra work to allow gcc to compile successfully C++ Tensorflow codes.
+The reason why I write this blog is because officially, to compile a C++ Tensorflow project, you have to integrate it in the source tree of tensorflow, create a BUILD file and compile it with bazel. For some reason, if you want to create a C++ Tensorflow project in your favorite C++ IDEs and build it with Makefile or CMake, you will need to do some extra work to allow gcc to be able to compile successfully C++ Tensorflow codes. The detailed instructions are in the second part, you can skip to it if you want to do directly on your machine instead of on a docker image.
 
-So this post aims to give detailed instructions on how to compile C++ Tensorflow codes with gcc. I will call it Standalone C++
-Tensorflow. To test the latest version of tensorflow on the latest stable Ubuntu until now, I create a docker image with:
+## I. Create docker image
+In the first part, I will create a docker image with latest version of tensorflow on the latest stable Ubuntu:
   -  **Ubuntu 17.10**
-  -  **gcc 7.2**
+  -  **gcc 7.2** (comes with Ubuntu 17.10)
   -  **tensorflow 1.4.0**
 
-The reason why I use Docker is to create an independent environment to test the latest version of tensorfow, because you can
-easily mess arround with all the includes and libs that already exist in your working environment. By creating a new Ubuntu
-docker image, it will be easier for you to follow the instructions without having to questions like: "Did you install library
-XYZ?" or "What are your environment paths?".
+The only reason why I use Docker is to create an independent environment to test the latest version of tensorfow on the 
+latest version of Ubuntu.
 
 I assume that you know the basic of Docker, here I create a ubuntu 17.10 image with this Dockerfile:
 ```
@@ -39,16 +34,16 @@ Then use the following command to create the image:
 ```sh
 docker build -t ubuntu:17.10 .
 ```
-
 **From now on, we will work on the interactive shell of docker image**, to go into the shell:
 ```sh
 docker run -it ubuntu:17.10 /bin/sh
 ```
+## II. Steps to make a standalone C++ Tensorflow
 Install python
 ```sh
 apt-get update && apt-get install python-dev python-pip python-setuptools python-sphinx python-yaml python-h5py python3-pip python-numpy python-scipy python-nose
 ```
-You need to install cmake 3.9.6 to compile others libraries:
+You need to install cmake to compile others libraries, here I install cmake 3.9.6:
 ```sh
 wget https://cmake.org/files/v3.9/cmake-3.9.6.tar.gz
 tar -xzvf cmake-3.9.6.tar.gz
