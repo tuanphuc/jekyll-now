@@ -8,4 +8,4 @@ I am an embedded engineer who loves deep learning
 
 ### Contact me
 
-[phan@tuanphuc.com](mailto:phan@tuanphuc.com)
+[phan at tuanphuc dot com](mailto:phan@tuanphuc.com).

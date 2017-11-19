@@ -202,4 +202,4 @@ To sum up, by following instructions, you can create an evironment with:
 
 Then all the headerfiles are copied in a folder names standalone that is ready to compile C++ tensorflow codes.
 
-I hope that this blog helps. If you have any question, feel free to contact me to: [phan@tuanphuc.com](mailto:phan@tuanphuc.com).
+I hope that this blog helps. If you have any question, feel free to contact me to: [phan at tuanphuc dot com](mailto:phan@tuanphuc.com).

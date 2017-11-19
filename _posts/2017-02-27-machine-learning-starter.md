@@ -3,7 +3,7 @@ layout: post
 title: First step on Machine Learning for software engineers
 ---
 
-Before going into details of how an engineer shoud take the first step on Machine Learning (ML), I want to clarify that I am an embedded engineer who are amazed by the beauty of ML and have started learning it for just over a year. So everything I write in this blog is subjective to my point of view. 
+Before going into details of how an engineer shoud take the first step on Machine Learning (ML), I want to clarify that I am an embedded engineer who are amazed by the beauty of ML and have started learning it for just over a year. So everything I write in this blog is subjective to my point of view.
 
 ML is a very interesting field to study. There is a fast growing need of engineers who have a computer science degree and want to step in this field as me for an example. However, it is not easy to have a clear study plan that you can actually understand the background of ML and then eventually become a ML engineer.
 
@@ -16,7 +16,7 @@ In my opinion, if you understanding theoritically a subject, you can learn much 
 
   - [An Introduction to Statistical Learning with Applications in R of Gareth James, Daniela Witten, Trevor Hastie, and Robert Tibshirani](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Seventh%20Printing.pdf)
   - [The Elements of Statistical Learning: Data Mining, Inference, and Prediction of Trevor Hastie, Robert Tibshirani, and Jerome Friedman](http://web.stanford.edu/~hastie/ElemStatLearn/printings/ESLII_print12.pdf)
-  
+
 Those books are 2 textbook used in the course [CS 189/289A Introduction to Machine Learning](https://people.eecs.berkeley.edu/~jrs/189s16/). They are available to download and you can follow the schedule of lectures to have a plan of reading those two books. There are also homeworks and lecture videos on youtube that are very useful. The first book introduces basic definition and popular methods, algorithms in Statistical Learning that are very accessible to beginers who are not specilised in statistic. The latter book covers all those things but in a higher level with detailed explanations and formulas that give you a great insight into what is behind all the different methods.
 
 Another book that is helpful too:
@@ -46,4 +46,4 @@ This books with 2 other books introduced above can be used together so you need 
 Conclusion
 ----------
 
-I might add more infos to make this blog and extend it with some ideas on Deep Learning (especially Reinforcement Learning) so if you find this post helpful, pin it. I'm happy to get your feedback to make this roadmap more concrete so don't hesitate to email me to: [phan@tuanphuc.com](mailto:phan@tuanphuc.com).
+I might add more infos to make this blog and extend it with some ideas on Deep Learning (especially Reinforcement Learning) so if you find this post helpful, pin it. I'm happy to get your feedback to make this roadmap more concrete so don't hesitate to email me to: [phan at tuanphuc dot com](mailto:phan@tuanphuc.com).
