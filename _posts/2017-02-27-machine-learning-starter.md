@@ -1,6 +1,6 @@
 ---
 layout: post
-title: First step on Machine Learning for engineers
+title: First step on Machine Learning for software engineers
 ---
 
 Before going into details of how an engineer shoud take the first step on Machine Learning (ML), I want to clarify that I am an embedded engineer who are amazed by the beauty of ML and have started learning it for just over a year. So everything I write in this blog is subjective to my point of view. 
