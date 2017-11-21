@@ -3,7 +3,7 @@ layout: post
 title: Compile Tensorflow C++ without Bazel
 ---
 
-In this post, I will give detailed instructions on how to compile the official C++ Tensorflow project [**label_image**](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/label_image) with **gcc** instead of bazel. 
+In this post, I will give detailed instructions on how to compile the official C++ Tensorflow project [**label_image**](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/label_image) with **gcc** instead of bazel.
 
 The reason why I write this blog is because officially, to compile a C++ Tensorflow project, you have to integrate it in the source tree of tensorflow, create a BUILD file and compile it with bazel. For some reason, if you want to create a C++ Tensorflow project in your favorite C++ IDEs and build it with Makefile or CMake, you will need to do some extra work to allow gcc to be able to compile successfully C++ Tensorflow codes. The detailed instructions are in the second part, you can skip the first part (Create a Ubuntu docker image) if you want to do directly on your machine instead of on a docker image.
 
@@ -13,7 +13,7 @@ In the first part, I will create a docker image with latest version of tensorflo
   -  **gcc 7.2** (comes with Ubuntu 17.10)
   -  **tensorflow 1.4.0**
 
-The only reason why I use Docker is to create an independent environment to test the latest version of tensorfow on the 
+The only reason why I use Docker is to create an independent environment to test the latest version of tensorfow on the
 latest version of Ubuntu.
 
 I assume that you know the basic of Docker, here I create a ubuntu 17.10 image with this Dockerfile:
@@ -184,6 +184,17 @@ Normally, it wil output:
 2017-11-19 13:10:25.205544: I main.cc:250] pickelhaube (716): 0.00800814
 2017-11-19 13:10:25.205563: I main.cc:250] bulletproof vest (466): 0.00535088
 ```
+
+For those who use docker image, now you can quit the interactive shell of docker and commit it so that it keeps all the things that you just did:
+```sh
+# On the interactive shell of docker do
+exit
+# On the local shell do the following to get docker container's id
+docker ps -l
+# Then commit
+docker commit <container-id> <image-name:tag>
+```
+
 To sum up, by following instructions, you can create an evironment with:
   -  Ubuntu 17.10
   -  gcc 7.2.0
