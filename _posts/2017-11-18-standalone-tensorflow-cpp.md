@@ -116,8 +116,8 @@ cd /home/standalone
 mkdir include
 cp -r $TENSORFLOW_DIR/tensorflow include/third_party/
 cp -r $TENSORFLOW_DIR/bazel-genfiles/tensorflow include/third_party/
-cp -r /home/protobuf/src/google include/third_party/
 cp -r $TENSORFLOW_DIR/third_party/eigen3 include/third_party/
+cp -r /home/protobuf/src/google include/third_party/
 cp -r /home/eigen-folder/. include/third_party/eigen3/
 cp -r include/third_party/eigen3/Eigen include/third_party/
 ```
@@ -154,7 +154,7 @@ Create Makefile in standalone folder with content:
 CC = g++
 CFLAGS = -std=c++11 -g -Wall -D_DEBUG -Wshadow -Wno-sign-compare -w
 INC = -I/usr/local/include/eigen3
-INC +=  -I./include/third_party
+INC += -I./include/third_party
 INC += -I./include
 INC += -I./include/nsync/public/
 LDFLAGS =  -lprotobuf -pthread -lpthread
