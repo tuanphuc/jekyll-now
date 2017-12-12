@@ -52,22 +52,12 @@ cd cmake-3.9.6
 make
 make install
 ```
-Install googletest from sources
-```sh
-cd /home
-git clone https://github.com/google/googletest.git
-cd googletest
-mkdir build
-cd build
-cmake ..
-make
-make install
-```
 Install protobuf from sources:
 ```sh
 cd /home
 apt-get install autoconf automake libtool
 git clone https://github.com/google/protobuf.git
+git checkout v3.4.0
 cd protobuf
 ./autogen.sh
 ./configure
@@ -202,8 +192,7 @@ To sum up, by following instructions, you can create an evironment with:
   -  Python 2 or 3
   -  cmake 3.9.6
   -  Eigen 3.3.4
-  -  Protobuf (master branch)
-  -  Googletest (master branch)
+  -  Protobuf (tag v3.4.0)
   -  bazel
 
 Then all the header files are copied in a folder names standalone that is ready to compile C++ tensorflow codes.
