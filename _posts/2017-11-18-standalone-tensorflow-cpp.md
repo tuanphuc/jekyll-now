@@ -103,7 +103,7 @@ To compile tensorflow with gcc, it has to get all the header files required to c
 ```sh
 export TENSORFLOW_DIR=/home/tensorflow
 cd /home/standalone
-mkdir include
+mkdir -p include/third_party
 cp -r $TENSORFLOW_DIR/tensorflow include/third_party/
 cp -r $TENSORFLOW_DIR/bazel-genfiles/tensorflow include/third_party/
 cp -r $TENSORFLOW_DIR/third_party/eigen3 include/third_party/
