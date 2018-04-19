@@ -20,6 +20,6 @@ Now you can built your libtensorflow_cc.so in adding the flag `--config=monolith
 bazel build -c opt --copt=-mavx --copt=-mavx2 --copt=-mfma --copt=-mfpmath=both --copt=-msse4.1 --copt=-msse4.2 --config=monolithic //tensorflow:libtensorflow_cc.so
 ```
 
-You will get a libtensorflow_cc.so as the output of the command above. Use it in your project (you don'n need libtensorflow_framework.so anymore) peacefully with your opencv. One last thing you have to do is to replace your protobuf in the last [post](https://tuanphuc.github.io/standalone-tensorflow-cpp/) which is the version 3.4.0 with the protobuf version 3.5.0 in order to compile sucessfully your project.
+You will get a libtensorflow_cc.so as the output of the command above. Use it in your project (you don'n need libtensorflow_framework.so anymore) peacefully with your opencv. One last thing you have to do is to update your protobuf to version 3.5.0 in order to compile sucessfully your project.
 
 If you have any question, feel free to contact me to: [phan at tuanphuc dot com](mailto:phan@tuanphuc.com).
