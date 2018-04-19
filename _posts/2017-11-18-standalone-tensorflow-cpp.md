@@ -3,6 +3,9 @@ layout: post
 title: Compile Tensorflow C++ without Bazel
 ---
 
+**Updates**: 
+  -  The configurations to compile for tensorflow 1.6.0 is described in [this post](https://tuanphuc.github.io/update-on-standalone-tensorflow-cpp-tf1.6.0/). If you want tensorflow to work nicely with OpenCV, follow that post.
+
 In this post, I will give detailed instructions on how to compile the official C++ Tensorflow project [**label_image**](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/label_image) with **gcc** instead of bazel.
 
 The reason why I write this blog is because officially, to compile a C++ Tensorflow project, you have to integrate it in the source tree of tensorflow, create a BUILD file and compile it with bazel. For some reason, if you want to create a C++ Tensorflow project in your favorite C++ IDEs and build it with Makefile or CMake, you will need to do some extra work to allow gcc to be able to compile successfully C++ Tensorflow codes. The detailed instructions are in the second part, you can skip the first part (Create a Ubuntu docker image) if you want to do directly on your machine instead of on a docker image.
@@ -28,6 +31,8 @@ RUN \
   apt-get install -y build-essential && \
   apt-get install -y software-properties-common && \
   apt-get install -y byobu curl git htop man unzip vim wget && \
+  apt-get update && \
+  apt-get install python-dev python-pip python-setuptools python-sphinx python-yaml python-h5py python3-pip python-numpy python-scipy python-nose && \
   rm -rf /var/lib/apt/lists/*
 ```
 Then use the following command to create the image:
@@ -39,10 +44,24 @@ docker build -t ubuntu:17.10 .
 docker run -it ubuntu:17.10 /bin/sh
 ```
 ## II. Steps to make a standalone C++ Tensorflow
-Install python
+### 1. Compile tensorflow
+Install bazel to compile tensorflow:
 ```sh
-apt-get update && apt-get install python-dev python-pip python-setuptools python-sphinx python-yaml python-h5py python3-pip python-numpy python-scipy python-nose
+apt-get install openjdk-8-jdk
+echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
+curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
 ```
+Clone tensorflow repo:
+```sh
+git clone https://github.com/tensorflow/tensorflow.git
+```
+Compile tensorflow for c++ (default parameters, python3)
+```sh
+cd tensorflow
+./configure
+bazel build //tensorflow:libtensorflow_cc.so
+```
+### 2. Install additional libraries
 You need to install cmake to compile others libraries, here I install cmake 3.9.6:
 ```sh
 wget https://cmake.org/files/v3.9/cmake-3.9.6.tar.gz
@@ -77,22 +96,6 @@ cd build
 cmake ..
 make
 make install
-```
-Install bazel to compile tensorflow:
-```sh
-apt-get install openjdk-8-jdk
-echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
-curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
-```
-Clone tensorflow repo:
-```sh
-git clone https://github.com/tensorflow/tensorflow.git
-```
-Compile tensorflow for c++ (default parameters, python3)
-```sh
-cd tensorflow
-./configure
-bazel build //tensorflow:libtensorflow_cc.so
 ```
 Create a standalone folder to test compilation of C++ tensorflow with gcc
 ```sh
@@ -184,17 +187,5 @@ docker ps -l
 # Then commit
 docker commit <container-id> <image-name:tag>
 ```
-
-To sum up, by following instructions, you can create an evironment with:
-  -  Ubuntu 17.10
-  -  gcc 7.2.0
-  -  tensorflow 1.4.0
-  -  Python 2 or 3
-  -  cmake 3.9.6
-  -  Eigen 3.3.4
-  -  Protobuf (tag v3.4.0)
-  -  bazel
-
-Then all the header files are copied in a folder names standalone that is ready to compile C++ tensorflow codes.
 
 I hope that this blog helps. If you have any question, feel free to contact me to: [phan at tuanphuc dot com](mailto:phan@tuanphuc.com).
