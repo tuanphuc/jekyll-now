@@ -97,6 +97,7 @@ cmake ..
 make
 make install
 ```
+### 3. Create and compile a standalone tensorflow C++ project
 Create a standalone folder to test compilation of C++ tensorflow with gcc
 ```sh
 cd /home
