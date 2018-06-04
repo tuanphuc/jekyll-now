@@ -14,7 +14,7 @@ git fetch --tags
 git checkout v1.6.0
 ```
 
-Now you can built your libtensorflow_cc.so in adding the flag `--config=monolithic` which will condense everything together into one shared object (no libtensorflow_framework dependence) and seal off non-TensorFlow symbols. This prevents the symbol conflict with opencv. I add also some flags that will help your tensorflow run faster: `--copt=-mavx --copt=-mavx2 --copt=-mfma --copt=-mfpmath=both --copt=-msse4.1`.
+Now you can built your libtensorflow_cc.so in adding the flag `--config=monolithic` which will condense everything together into one shared object (no libtensorflow_framework dependence) and seal off non-TensorFlow symbols. This prevents the symbol conflict with opencv. I add also some flags that will help your tensorflow run faster: `--copt=-mavx --copt=-mavx2 --copt=-mfma --copt=-mfpmath=both --copt=-msse4.1 --copt=-msse4.2`.
 
 ```sh
 bazel build -c opt --copt=-mavx --copt=-mavx2 --copt=-mfma --copt=-mfpmath=both --copt=-msse4.1 --copt=-msse4.2 --config=monolithic //tensorflow:libtensorflow_cc.so
