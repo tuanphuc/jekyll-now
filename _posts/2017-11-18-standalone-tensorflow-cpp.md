@@ -4,7 +4,7 @@ title: Compile Tensorflow C++ without Bazel
 ---
 
 **Updates**: 
-  -  The configurations to compile for tensorflow 1.6.0 is described in [this post](https://tuanphuc.github.io/update-on-standalone-tensorflow-cpp-tf1.6.0/). If you want tensorflow to work nicely with OpenCV, follow that post.
+  -  The configurations to compile for tensorflow 1.8.0 is described in [this post](https://tuanphuc.github.io/update-on-standalone-tensorflow-cpp/). If you want tensorflow to work nicely with OpenCV, follow that post.
 
 In this post, I will give detailed instructions on how to compile the official C++ Tensorflow project [**label_image**](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/label_image) with **gcc** instead of bazel.
 
