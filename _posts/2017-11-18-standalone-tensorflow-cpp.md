@@ -4,7 +4,7 @@ title: Compile Tensorflow C++ without Bazel
 ---
 
 **Updates**: 
-  -  The configurations to compile for tensorflow 1.8.0 is described in [this post](https://tuanphuc.github.io/update-on-standalone-tensorflow-cpp/). If you want tensorflow to work nicely with OpenCV, follow that post.
+  -  The configurations to compile for tensorflow 1.8.0 is described in [this post](https://tuanphuc.github.io/update-on-standalone-tensorflow-cpp/). If you want tensorflow to work nicely with OpenCV, follow this post with only one change described in that post.
 
 In this post, I will give detailed instructions on how to compile the official C++ Tensorflow project [**label_image**](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/label_image) with **gcc** instead of bazel.
 
@@ -124,8 +124,8 @@ We need also 2 libraries libtensorflow_cc.so and libtensorflow_framework.so. Cop
 ```sh
 cd /home/standalone
 mkdir lib
-cp -r $TENSORFLOW_DIR/bazel-bin/tensorflow/libtensorflow_cc.so /usr/local/lib
-cp -r $TENSORFLOW_DIR/bazel-bin/tensorflow/libtensorflow_framework.so /usr/local/lib
+cp -r $TENSORFLOW_DIR/bazel-bin/tensorflow/libtensorflow_cc.so /home/standalone/lib
+cp -r $TENSORFLOW_DIR/bazel-bin/tensorflow/libtensorflow_framework.so /home/standalone/lib
 ```
 Refresh shared library cache:
 ```sh
@@ -147,21 +147,26 @@ Create Makefile in standalone folder with content:
 ```make
 CC = g++
 CFLAGS = -std=c++11 -g -Wall -D_DEBUG -Wshadow -Wno-sign-compare -w
+
+DIR = /home/standalone/
+
 INC = -I/usr/local/include/eigen3
 INC += -I./include/third_party
 INC += -I./include
 INC += -I./include/nsync/public/
+
 LDFLAGS =  -lprotobuf -pthread -lpthread
+LDFLAGS += -L$(DIR)/lib/ -Wl,-R$(DIR)/lib/ '-Wl,-R$$ORIGIN'
 LDFLAGS += -ltensorflow_cc -ltensorflow_framework
 
 all: main
 
 main:
-        $(CC) $(CFLAGS) -o main main.cc $(INC) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o main main.cc $(INC) $(LDFLAGS)
 run:
-        ./main --image=./data/grace_hopper.jpg --graph=./data/inception_v3_2016_08_28_frozen.pb --labels=./data/imagenet_slim_labels.txt
+	./main --image=./data/grace_hopper.jpg --graph=./data/inception_v3_2016_08_28_frozen.pb --labels=./data/imagenet_slim_labels.txt
 clean:
-        rm -f main
+	rm -f main
 ```
 Now do:
 ```sh
