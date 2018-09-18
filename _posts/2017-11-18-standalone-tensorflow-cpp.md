@@ -71,33 +71,32 @@ tar -xzvf cmake-3.9.6.tar.gz
 cd cmake-3.9.6
 ./configure
 make
-make install
+sudo make install
 ```
 Install protobuf from sources:
 ```sh
 cd /home
 sudo apt-get install autoconf automake libtool
 git clone https://github.com/google/protobuf.git
-git checkout v3.4.0
 cd protobuf
+git checkout v3.4.0
 ./autogen.sh
 ./configure
 make
 make check
-make install
-ldconfig
+sudo make install
 ```
 Install Eigen 3.3.4 from sources
 ```sh
 cd /home
 wget http://bitbucket.org/eigen/eigen/get/3.3.4.tar.bz2
-tar -xzvf 3.3.4.tar.bz2
+tar -xvjf 3.3.4.tar.bz2
 cd eigen-folder
 mkdir build
 cd build
 cmake ..
 make
-make install
+sudo make install
 ```
 ### 3. Create and compile a standalone tensorflow C++ project
 Create a standalone folder to test compilation of C++ tensorflow with gcc
@@ -131,7 +130,7 @@ cp -r $TENSORFLOW_DIR/bazel-bin/tensorflow/libtensorflow_framework.so /home/stan
 ```
 Refresh shared library cache:
 ```sh
-ldconfig
+sudo ldconfig
 ```
 Copy C++ example label_image under tensorflow source tree to standalone folder:
 ```sh
