@@ -8,7 +8,7 @@ title: Compile Tensorflow C++ without Bazel
 
 In this post, I will give detailed instructions on how to compile the official C++ Tensorflow project [**label_image**](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/label_image) with **gcc** instead of bazel.
 
-The reason why I write this blog is because officially, to compile a C++ Tensorflow project, you have to integrate it in the source tree of tensorflow, create a BUILD file and compile it with bazel. For some reason, if you want to create a C++ Tensorflow project in your favorite C++ IDEs and build it with Makefile or CMake, you will need to do some extra work to allow gcc to be able to compile successfully C++ Tensorflow codes. The detailed instructions are in the second part, you can skip the first part (Create a Ubuntu docker image) if you want to do directly on your machine instead of on a docker image.
+The reason why I write this blog is because officially, to compile a C++ Tensorflow project, you have to integrate it in the source tree of tensorflow, create a BUILD file and compile it with bazel. For some reason, if you want to create a C++ Tensorflow project in your favorite C++ IDEs and build it with Makefile or CMake, you will need to do some extra work to allow gcc to be able to compile successfully C++ Tensorflow codes. The detailed instructions are in the second part, **you can skip the first part (Create a Ubuntu docker image) if you want to do directly on your machine instead of on a docker image**.
 
 ## I. Create a Ubuntu docker image
 In the first part, I will create a docker image with latest version of tensorflow on the latest stable Ubuntu:
@@ -45,11 +45,13 @@ docker run -it ubuntu:17.10 /bin/sh
 ```
 ## II. Steps to make a standalone C++ Tensorflow
 ### 1. Compile tensorflow
-Install bazel to compile tensorflow:
+[Install bazel](https://docs.bazel.build/versions/master/install-ubuntu.html) to compile tensorflow:
 ```sh
-apt-get install openjdk-8-jdk
-echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
-curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
+sudo apt-get install openjdk-8-jdk
+echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
+curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
+sudo apt-get update && sudo apt-get install bazel
+sudo apt-get upgrade bazel
 ```
 Clone tensorflow repo:
 ```sh
@@ -74,7 +76,7 @@ make install
 Install protobuf from sources:
 ```sh
 cd /home
-apt-get install autoconf automake libtool
+sudo apt-get install autoconf automake libtool
 git clone https://github.com/google/protobuf.git
 git checkout v3.4.0
 cd protobuf
